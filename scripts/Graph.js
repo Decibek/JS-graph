@@ -16,6 +16,11 @@ function Graph(options) {
     canvas.width = width;
     canvas.height = height;
     var context = canvas.getContext("2d");
+    var callbacks = options.callbacks;
+    canvas.addEventListener('wheel', callbacks.wheel);
+    canvas.addEventListener('mouseup', callbacks.mouseup);
+    canvas.addEventListener('mousedown', callbacks.mousedown);
+    canvas.addEventListener('mousemove', callbacks.mousemove);
 
     function xs(x) {
         return (x - WIN.LEFT) / WIN.WIDTH * canvas.width;
@@ -33,5 +38,18 @@ function Graph(options) {
         context.lineTo(xs(x2), ys(y2));
         context.closePath();
         context.stroke();
+    }
+
+    this.clear = function(){
+        context.fillStyle = '#efe';
+        context.fillRect(0,0,canvas.width, canvas.height);
+    }
+
+    this.sx = function(x){
+        return x + WIN.WIDTH / canvas.width;
+    }
+
+    this.sy = function(y){
+        return y + WIN.HEIGHT / canvas.height;
     }
 }
