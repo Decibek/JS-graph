@@ -1,8 +1,8 @@
 function Graph(options) {
     options = options || {};
     var id = options.id;
-    var width = options.width || 1000;
-    var height = options.height || 1000;
+    var width = options.width || 800;
+    var height = options.height || 800;
     var WIN = options.WIN || {};
     var canvas;
 
