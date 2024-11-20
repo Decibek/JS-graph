@@ -34,35 +34,4 @@ function Graph(options) {
         context.closePath();
         context.stroke();
     }
-
-    this.axes = function() {
-        context.strokeStyle = 'lightgray';
-        
-        for(i = WIN.BOTTOM; i < WIN.HEIGHT; i++) {
-            context.beginPath();
-            context.moveTo(xs(i), ys(WIN.BOTTOM));
-            context.lineTo(xs(i), ys(WIN.HEIGHT));
-            context.closePath();
-            context.stroke();
-        };
-
-        for(j = WIN.LEFT; j < WIN.WIDTH; j++) {
-            context.beginPath();
-            context.moveTo(xs(WIN.LEFT), ys(j));
-            context.lineTo(xs(WIN.WIDTH), ys(j));
-            context.closePath();
-            context.stroke();
-        };
-
-        context.strokeStyle = 'black';
-        context.beginPath();
-        context.moveTo(xs(0), ys(WIN.BOTTOM));
-        context.lineTo(xs(0), ys(WIN.HEIGHT));
-        context.moveTo(xs(WIN.LEFT), ys(0));
-        context.lineTo(xs(WIN.WIDTH), ys(0));
-        context.closePath();
-        context.stroke();
-    };
-
-    
 }
