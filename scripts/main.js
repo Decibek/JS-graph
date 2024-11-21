@@ -52,11 +52,11 @@ window.onload = function() {
         }
     }
 
-    function render() {
-        graph.clear();
-        renderOXY();
-        renderFunction(f, '#f44', 2);
-    }
+    // function render() {
+    //     graph.clear();
+    //     renderOXY();
+    //     renderFunction(f, '#f44', 2);
+    // }
 
 
     function renderFunction(f, color, width) {
@@ -88,4 +88,48 @@ window.onload = function() {
         graph.line(WIN.LEFT, 0, WIN.WIDTH + WIN.LEFT, 0, '#222') //ось х
         graph.line(0, WIN.BOTTOM, 0, WIN.HEIGHT + WIN.BOTTOM, '#222') //ось y
     }
-};
+    
+    var funcs = [];
+    new UI({
+        callbacks: {
+            addFunction:addFunction,
+            delFunction:delFunction,
+            setColor:setColor,
+        }  
+    })
+    
+    function addFunction(f,num){
+        if (!funcs[num]){
+            funcs[num] = {f:f,color: 'blue'};
+        } else{
+            funcs[num].f = f;
+        }
+        render();
+    }
+
+    function delFunction(num){
+        funcs[num] = null;
+        render();
+    }
+
+    function setColor(color,num){
+        if (funcs[num]){
+            funcs[num].color = color;
+            render();
+        }
+    }
+
+    function render(){
+        graph.clear();
+        renderOXY();
+            for (var i=0; i<funcs.length;i++){
+                if (funcs[i]){
+                    renderFunction(funcs[i].f,funcs[i].color);
+                }
+            }
+    }
+
+
+}
+    
+

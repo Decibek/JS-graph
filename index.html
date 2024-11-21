@@ -14,9 +14,19 @@
 
     <script src="scripts/Graph.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/UI.js"></script>
 </head>
-<body class="background-fill-color">
+<body>
     <p class="prosto-one-regular">График 2D</p>
-    <canvas id="id" width="300" height="300"></canvas>
+    <canvas id="id" width="300" height="300" class="canvas-position"></canvas>
+    <div class="buttons-graph">
+        <div>
+            <button id="shoulHide"> => </button>
+        </div>
+        <div class="overlay hide">
+            <button id = 'addFunction'> + </button>
+            <div id="funcInput"></div>
+        </div>
+    </div>
 </body>
 </html>
