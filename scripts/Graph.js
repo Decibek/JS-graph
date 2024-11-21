@@ -27,7 +27,7 @@ function Graph(options) {
     }
 
     function ys(y) {
-        return (y - WIN.BOTTOM) / WIN.HEIGHT * canvas.height;
+    return canvas.height - (y - WIN.BOTTOM) / WIN.HEIGHT * canvas.height;
     }
 
     this.line = function(x1, y1, x2, y2, color, width) {
@@ -41,7 +41,7 @@ function Graph(options) {
     }
 
     this.clear = function(){
-        context.fillStyle = '#efe';
+        context.fillStyle = '#ddd';
         context.fillRect(0,0,canvas.width, canvas.height);
     }
 

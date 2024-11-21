@@ -47,7 +47,7 @@ window.onload = function() {
     function mousemove(event) {
         if (canMove) {
             WIN.LEFT -= graph.sx(event.movementX) * 0.025;
-            WIN.BOTTOM -= graph.sy(event.movementY) * 0.025;
+            WIN.BOTTOM -= graph.sy(event.movementY) * -0.025;
             render();
         }
     }
@@ -55,7 +55,7 @@ window.onload = function() {
     function render() {
         graph.clear();
         renderOXY();
-        renderFunction(f, 'red', 1.5);
+        renderFunction(f, '#f44', 2);
     }
 
 
@@ -70,22 +70,22 @@ window.onload = function() {
 
     function renderOXY() {
         for (x = 0; x < WIN.WIDTH + WIN.LEFT; x++) { //от 0 до х+
-            graph.line(x, WIN.BOTTOM, x,  WIN.HEIGHT + WIN.BOTTOM, 'lightgrey', 1) //ось y
+            graph.line(x, WIN.BOTTOM, x,  WIN.HEIGHT + WIN.BOTTOM, '#999', 1) //ось y
         }
         
         for (x = 0; x > WIN.LEFT; x--) {
-            graph.line(x, WIN.BOTTOM, x,  WIN.HEIGHT + WIN.BOTTOM, 'lightgrey', 1); //ось y
+            graph.line(x, WIN.BOTTOM, x,  WIN.HEIGHT + WIN.BOTTOM, '#999', 1); //ось y
         }
         
         for (x = 0; x > WIN.BOTTOM; x--) { 
-            graph.line(WIN.LEFT, x, WIN.WIDTH + WIN.LEFT, x, 'lightgrey', 1);
+            graph.line(WIN.LEFT, x, WIN.WIDTH + WIN.LEFT, x, '#999', 1);
         }
 
         for (x = 0; x < WIN.HEIGHT + WIN.BOTTOM; x++) { 
-            graph.line(WIN.LEFT, x, WIN.WIDTH + WIN.LEFT, x, 'lightgrey', 1);
+            graph.line(WIN.LEFT, x, WIN.WIDTH + WIN.LEFT, x, '#999', 1);
         }
 
-        graph.line(WIN.LEFT, 0, WIN.WIDTH + WIN.LEFT, 0, 'black') //ось х
-        graph.line(0, WIN.BOTTOM, 0, WIN.HEIGHT + WIN.BOTTOM, 'black') //ось y
+        graph.line(WIN.LEFT, 0, WIN.WIDTH + WIN.LEFT, 0, '#222') //ось х
+        graph.line(0, WIN.BOTTOM, 0, WIN.HEIGHT + WIN.BOTTOM, '#222') //ось y
     }
 };
