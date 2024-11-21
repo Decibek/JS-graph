@@ -5,7 +5,11 @@
 .prosto-one-regular {
     font-family: "Prosto One", serif;
     font-weight: 400;
+    font-size: 22px;
     font-style: normal;
     color: rgb(230, 230, 230);
-  }
+    position: absolute;
+    top: 800px;
+    left: 310px;
+}
   
