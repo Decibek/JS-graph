@@ -21,6 +21,7 @@ function Graph(options) {
     canvas.addEventListener('mouseup', callbacks.mouseup);
     canvas.addEventListener('mousedown', callbacks.mousedown);
     canvas.addEventListener('mousemove', callbacks.mousemove);
+    canvas.addEventListener('mouseleave', callbacks.mouseleave);
 
     function xs(x) {
         return (x - WIN.LEFT) / WIN.WIDTH * canvas.width;

@@ -52,13 +52,6 @@ window.onload = function() {
         }
     }
 
-    // function render() {
-    //     graph.clear();
-    //     renderOXY();
-    //     renderFunction(f, '#f44', 2);
-    // }
-
-
     function renderFunction(f, color, width) {
         var x = WIN.LEFT;
         var dx = WIN.WIDTH / 200;
@@ -69,12 +62,12 @@ window.onload = function() {
     }
 
     function renderOXY() {
-        for (x = 0; x < WIN.WIDTH + WIN.LEFT; x++) { //от 0 до х+
-            graph.line(x, WIN.BOTTOM, x,  WIN.HEIGHT + WIN.BOTTOM, '#999', 1) //ось y
+        for (x = 0; x < WIN.WIDTH + WIN.LEFT; x++) { 
+            graph.line(x, WIN.BOTTOM, x,  WIN.HEIGHT + WIN.BOTTOM, '#999', 1) 
         }
         
         for (x = 0; x > WIN.LEFT; x--) {
-            graph.line(x, WIN.BOTTOM, x,  WIN.HEIGHT + WIN.BOTTOM, '#999', 1); //ось y
+            graph.line(x, WIN.BOTTOM, x,  WIN.HEIGHT + WIN.BOTTOM, '#999', 1); 
         }
         
         for (x = 0; x > WIN.BOTTOM; x--) { 
@@ -85,8 +78,8 @@ window.onload = function() {
             graph.line(WIN.LEFT, x, WIN.WIDTH + WIN.LEFT, x, '#999', 1);
         }
 
-        graph.line(WIN.LEFT, 0, WIN.WIDTH + WIN.LEFT, 0, '#222') //ось х
-        graph.line(0, WIN.BOTTOM, 0, WIN.HEIGHT + WIN.BOTTOM, '#222') //ось y
+        graph.line(WIN.LEFT, 0, WIN.WIDTH + WIN.LEFT, 0, '#222') 
+        graph.line(0, WIN.BOTTOM, 0, WIN.HEIGHT + WIN.BOTTOM, '#222')
     }
     
     var funcs = [];
@@ -129,7 +122,5 @@ window.onload = function() {
             }
     }
 
-
+    render();
 }
-    
-
