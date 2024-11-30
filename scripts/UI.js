@@ -10,28 +10,31 @@ function UI(options){
 
     function addFunction(){
         var input = document.createElement('input');
-        input.setAttribute('placeHolder', 'например: Math.sin(x)')
+        input.setAttribute('placeHolder', 'впишите функцию')
         input.dataset.num = num;
         input.addEventListener('keyup', keyupAdd);
         var inputColor = document.createElement('input');
-        inputColor.setAttribute('placeHolder','цвет');
-        inputColor.addEventListener('keyup', keyupColor);
-        inputColor.title = 'Введите цвет функции, например:\n- red'
+        // <input id="color-input" type="color" value="#00ff00"></input>
+        // inputColor.setAttribute('placeHolder','Цветик введите');
+        inputColor.setAttribute('type','color');
+        // inputColor.addEventListener('mouseleave', keyupColor);
+
+        inputColor.addEventListener('input', function() {
+            callbacks.setColor(this.value, this.dataset.num);
+        });
+
         inputColor.dataset.num = num;
         var button = document.createElement('button');
-        button.title = "Удалить функцию с графика";
         button.innerHTML = 'Удалить';
         button.addEventListener('click', function(){
             callbacks.delFunction(input.dataset.num);
             funcInput.removeChild(input);
-            funcInput.removeChild(inputColor);
             funcInput.removeChild(button);
         })
         var funcInput = document.getElementById('funcInput');
         funcInput.appendChild(input);
         funcInput.appendChild(inputColor);
         funcInput.appendChild(button);
-        funcInput.title = 'Введите функцию, например:\n- Math.sin(x) для отображения синусоиды\n- x*x для отображения параболы'
         num++;
     }
 
